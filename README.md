@@ -55,7 +55,7 @@ exit()
 Now instead of using the Python interpreter I can write a script that does the same thing. 
 
 ### 2.1 Writing a simple Python script
-Write a script called "ifa-set.py" that includes the same jinja2 template.
+Write a script called "genconfig.py" that includes the same jinja2 template.
 We then expand the variables with render() method for two logical interfaces and print the results.
 ```
 #!/usr/bin/python
@@ -71,20 +71,21 @@ print ifa2
 ### 2.2 Setting file permissions
 Make sure the access permissions are properly set to execute this script
 ```
-chmod +x ifa-set.py
+chmod +x genconfig.py
 ```
 
 ### 2.3 Running the Python script
 Now you're ready to call that script:
 ```
-./ifa-set.py
+./genconfig.py
 ```
 or
 ```
-python ifa-set.py
+python genconfig.py
 ```
 
 Done.
+
 
 ## 3. Jinja2 Script reading a YAML file
 Writing variables within the script means you need to update the script for every variable change. 
@@ -92,23 +93,27 @@ Instead you can store the variables in a separate file written in YAML format wh
 It's also a good idea to write your jinja2 template in a separate file while we're at it.
 
 ### 3.1 Jinja2 Template file
-Write a jinja2 template called "iftemplate.j2":
+Write a jinja2 template called "conf.j2":
 
 In 'set commands' format:
 ```
-set interfaces {{ ifd }} unit {{ unit }} family int address {{ ip }}
+{% for item in ifd %}
+set interfaces {{ item.name }} unit {{ item.unit }} family int address {{ item.ip }}
+{% endfor %}
 ```
 
 Or in 'curly bracket' style:
 ```
 interfaces {
-    {{ ifd }} {
-        unit {{ ifd.unit }} {
+{% for item in ifd %}
+    {{ item.name }} {
+        unit {{ item.unit }} {
             family inet {
-                address {{ ifd.ip }};
+                address {{ item.ip }};
             }
         }
     }
+{% endfor %}
 }
 ```
 
@@ -117,26 +122,50 @@ Store the variables in a YAML file called "ifvars.yml":
 ```
 ---
 ifd:
-  ge-0/0/1:
-    unit: 0
-    ip: 10.0.1.1/24
-  ge-0/0/2:
-    unit: 0
-    ip: 10.0.2.1/24
-  ge-0/0/3:
-    unit: 0
-    ip: 10.0.3.1/24
-  ge-0/0/4:
-    unit: 0
-    ip: 10.0.4.1/24
-  ge-0/0/5:
-    unit: 0
-    ip: 10.0.5.1/24
+- name: 'ge-0/0/1'
+  unit: 0
+  ip: 10.0.1.1/24
+- name: ge-0/0/2 
+  unit: 0
+  ip: 10.0.2.1/24
+- name: ge-0/0/3
+  unit: 0
+  ip: 10.0.3.1/24 
+- name: ge-0/0/4
+  unit: 0
+  ip: 10.0.4.1/24
+- name: ge-0/0/5
+  unit: 0
+  ip: 10.0.5.1/24
 ```
+
 ### 2.1 Writing a simple Python script
-Write a script called "ifa-set.py" that includes the same jinja2 template.
+Write a script called "genconfig.py" that includes the same jinja2 template.
 We then expand the variables with render() method for two logical interfaces and print the results.
 ```
 #!/usr/bin/python
 
-....
+import yaml
+from jinja2 import Template
+
+mytemplate = "setconf.j2"
+myinput = "ifd.yml"
+
+### Print the Jinja2 Template file
+myj2 = open(mytemplate).read()
+#print "\n### DEBUG: Print the Jinja2 template:"
+#print myj2
+
+### Print the YAML input file
+mydata = yaml.load(open(myinput).read())
+#print "\n### DEBUG: Print the YAML file:"
+#print mydata
+
+### Render the jinja2 template
+mytemplate = Template(myj2)
+myconfig = mytemplate.render(mydata)
+print "\n### Here's the full config:"
+print myconfig
+```
+
+Done.
