@@ -8,7 +8,7 @@ This is just a short demo to quickly show how Jinja2 templates work with Python
 Using a Docker container greatly simplifies the environment setup for Python, PyEz and Ansible... It also keeps things clean and contained
 
 ```
-docker run -it --rm -v ~/tom/:/project --name pyez-ansible juniper/pyez-ansible ash
+docker run -it --rm -v $(pwd):/project --name pyez-ansible juniper/pyez-ansible ash
 ```
 See Docker Hub for more info
 https://hub.docker.com/r/juniper/pyez-ansible/
