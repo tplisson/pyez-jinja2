@@ -139,7 +139,7 @@ ifd:
   ip: 10.0.5.1/24
 ```
 
-### 2.1 Writing a simple Python script
+### 3.3 Writing a simple Python script
 Write a script called "genconfig.py" that includes the same jinja2 template.
 We then expand the variables with render() method for two logical interfaces and print the results.
 ```
@@ -166,6 +166,22 @@ mytemplate = Template(myj2)
 myconfig = mytemplate.render(mydata)
 print "\n### Here's the full config:"
 print myconfig
+```
+
+### 3.4 Setting file permissions
+Make sure the access permissions are properly set to execute this script
+```
+chmod +x genconfig.py
+```
+
+### 3.5 Running the Python script
+Now you're ready to call that script:
+```
+./genconfig.py
+```
+or
+```
+python genconfig.py
 ```
 
 Done.
