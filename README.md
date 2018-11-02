@@ -7,11 +7,9 @@
 
 [**1. Quick Jinja2 Demo using the Python Interpreter**](README.md#1.-Quick-Jinja2-Demo-using-the-python-interpreter)
 
-[**2. Simple Python script with a Jinja2 Template**](README.md#2)
-2.-Simple-Python-script-with-a-Jinja2-Template
+[**2. Simple Python script with a Jinja2 Template**](README.md#2.-Simple-Python-script-with-a-Jinja2-Template)
 
-[**3. Python Script with Jinja2 reading YAML files**](README.md#3)
-3.-Python-Script-with-Jinja2-reading-YAML-files
+[**3. Python Script with Jinja2 reading YAML files**](README.md#3.-Python-Script-with-Jinja2-reading-YAML-files)
 
 # 1. Quick Jinja2 Demo using the Python Interpreter
 This is just a short demo to quickly show how Jinja2 templates work with Python
