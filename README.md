@@ -36,11 +36,11 @@ template = Template('set interface {{ ifd }} unit {{ unit }} family inet address
 ### 1.5 Using render()
 The template object provides a method called render() which, when called with a dict or keyword arguments, expands the template 
 
-Now I can "expand" the variables with some values:
+Now you can "expand" the variables with some values:
 ```
 template.render(ifd='ge-0/0/0',unit='101',ip='10.0.1.1/24’)
 ```
-And I can repeat that many times with different values:
+And you can repeat that many times with different values:
 ```
 template.render(ifd='ge-0/0/0',unit='102',ip='10.0.2.1/24’)
 ```
