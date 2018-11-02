@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.org/tplisson/pyez-jinja2.svg?branch=master)](https://travis-ci.org/tplisson/pyez-jinja2)
 
-## Documentation Structure
+## Table of Contents
 
 [**1. Quick Jinja2 Demo using the Python Interpreter**](README.md#1.-Quick-Jinja2-Demo-using-the-python-interpreter)
 
