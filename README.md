@@ -6,9 +6,7 @@
 ## Documentation Structure
 
 [**1. Quick Jinja2 Demo using the Python Interpreter**](README.md#1.-Quick-Jinja2-Demo-using-the-python-interpreter)
-
 [**2. Simple Python script with a Jinja2 Template**](README.md#2.-Simple-Python-script-with-a-Jinja2-Template)
-
 [**3. Python Script with Jinja2 reading YAML files**](README.md#3.-Python-Script-with-Jinja2-reading-YAML-files)
 
 # 1. Quick Jinja2 Demo using the Python Interpreter
