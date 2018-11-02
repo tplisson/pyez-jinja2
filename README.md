@@ -1,15 +1,16 @@
 # Junos PyEZ with Jinja2 templating
 
 [![Build Status](https://travis-ci.org/tplisson/pyez-jinja2.svg?branch=master)]
+(https://travis-ci.org/tplisson/pyez-jinja2)
 
 # Documentation Structure
 
-[**1 Quick Jinja2 Demo**](README.md#1. Quick Overview of Jinja2 Templating using the Python interpreter)
-[**2 Simple Jinja2 Template in a Python script**](README.md## 2. Simple Jinja2 Template in a Python script)  
-[**3. Jinja2 Script reading a YAML file**](README.md## 3. Jinja2 Script reading a YAML file)  
+[**1. Quick Jinja2 Demo using the Python Interpreter**](README.md#1.-Quick-Jinja2-Demo-using-the-python-interpreter)
+[**2. Simple Python script with a Jinja2 Template**](README.md#2.-Simple-Python-script-with-a-Jinja2-Template)  
+[**3. Jinja2 Script reading YAML files**](README.md3.-Jinja2-Script-reading-YAML-files)  
 
 
-# 1. Quick Overview of Jinja2 Templating using the Python interpreter
+# 1. Quick Jinja2 Demo using the Python Interpreter
 This is just a short demo to quickly show how Jinja2 templates work with Python
 
 ---
@@ -60,7 +61,7 @@ Use Ctrl-D or:
 exit()
 ```
 
-# 2. Simple Jinja2 Template in a Python script
+# 2. Simple Python script with a Jinja2 Template
 Now instead of using the Python interpreter I can write a script that does the same thing. 
 
 ## 2.1 Writing a simple Python script
@@ -96,7 +97,7 @@ python genconfig.py
 Done.
 
 
-# 3. Jinja2 Script reading a YAML file
+# 3. Jinja2 Script reading YAML files
 Writing variables within the script means you need to update the script for every variable change. 
 Instead you can store the variables in a separate file written in YAML format which is easy to read/update and much cleaner.
 It's also a good idea to write your jinja2 template in a separate file while we're at it.
