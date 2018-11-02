@@ -1,7 +1,6 @@
 # Junos PyEZ with Jinja2 templating
 
-[![Build Status](https://travis-ci.org/tplisson/pyez-jinja2.svg?branch=master)]
-(https://travis-ci.org/tplisson/pyez-jinja2)
+[![Build Status](https://travis-ci.org/tplisson/pyez-jinja2.svg?branch=master)](https://travis-ci.org/tplisson/pyez-jinja2)
 
 ## Documentation Structure
 
