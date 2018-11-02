@@ -1,5 +1,4 @@
-# pyez-jinja2
-Junos PyEZ with Jinja2 templating
+# Junos PyEZ with Jinja2 templating
 
 ## 1. Quick Overview of Jinja2 Templating using the Python interpreter
 This is just a short demo to quickly show how Jinja2 templates work with Python
@@ -140,4 +139,4 @@ We then expand the variables with render() method for two logical interfaces and
 ```
 #!/usr/bin/python
 
-
+....
