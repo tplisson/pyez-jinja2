@@ -1,5 +1,14 @@
 # Junos PyEZ with Jinja2 templating
 
+https://travis-ci.org/tplisson/pyez-jinja2.svg?branch=master
+
+# Documentation Structure
+
+[**1 Quick Jinja2 Demo**](README.md#1. Quick Overview of Jinja2 Templating using the Python interpreter) 
+[**2 Simple Jinja2 Template in a Python script**](README.md## 2. Simple Jinja2 Template in a Python script)  
+[**3. Jinja2 Script reading a YAML file**](README.md## 3. Jinja2 Script reading a YAML file)  
+
+
 ## 1. Quick Overview of Jinja2 Templating using the Python interpreter
 This is just a short demo to quickly show how Jinja2 templates work with Python
 
