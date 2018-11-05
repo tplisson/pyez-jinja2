@@ -21,6 +21,7 @@ Using a Docker container greatly simplifies the environment setup for Python, Py
 ```
 docker run -it --rm -v $(pwd):/project --name pyez-ansible juniper/pyez-ansible ash
 ```
+
 See Docker Hub for more info
 https://hub.docker.com/r/juniper/pyez-ansible/
 
@@ -69,7 +70,7 @@ Now instead of using the Python interpreter I can write a script that does the s
 Write a script called "genconfig.py" that includes the same jinja2 template.
 We then expand the variables with render() method for two logical interfaces and print the results.
 ```
-#!/usr/bin/python
+#!/usr/bin/env python
 
 from jinja2 import Template
 template = Template('set interface {{ ifd }} unit {{ unit }} family inet address {{ ip }}')
@@ -154,7 +155,7 @@ ifd:
 Write a script called "genconfig.py" that includes the same jinja2 template.
 We then expand the variables with render() method for two logical interfaces and print the results.
 ```
-#!/usr/bin/python
+#!/usr/bin/env python
 
 import yaml
 from jinja2 import Template
