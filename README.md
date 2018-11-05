@@ -1,12 +1,15 @@
-# Junos PyEZ with Jinja2 templating
+# Junos PyEZ with Jinja2 templates
 
 [![Build Status](https://travis-ci.org/tplisson/pyez-jinja2.svg?branch=master)](https://travis-ci.org/tplisson/pyez-jinja2)
 
 ## Documentation Structure
 
 [**1. Quick Jinja2 Demo using the Python Interpreter**](README.md#1.-Quick-Jinja2-Demo-using-the-python-interpreter)
+
 [**2. Simple Python script with a Jinja2 Template**](README.md#2.-Simple-Python-script-with-a-Jinja2-Template)
+
 [**3. Python Script with Jinja2 using YAML files**](README.md#3.-Python-Script-with-Jinja2-using-YAML-files)
+
 
 # 1. Quick Jinja2 Demo using the Python Interpreter
 This is just a short demo to quickly show how Jinja2 templates work with Python
@@ -66,7 +69,7 @@ Now instead of using the Python interpreter I can write a script that does the s
 Write a script called "genconfig.py" that includes the same jinja2 template.
 We then expand the variables with render() method for two logical interfaces and print the results.
 ```
-#!/usr/bin/python
+#!/usr/bin/env python
 
 from jinja2 import Template
 template = Template('set interface {{ ifd }} unit {{ unit }} family inet address {{ ip }}')
@@ -151,7 +154,7 @@ ifd:
 Write a script called "genconfig.py" that includes the same jinja2 template.
 We then expand the variables with render() method for two logical interfaces and print the results.
 ```
-#!/usr/bin/python
+#!/usr/bin/env python
 
 import yaml
 from jinja2 import Template
