@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/env python
 
 from jinja2 import Template
 template = Template('set interface {{ ifd }} unit {{ unit }} family inet address {{ ip }}')

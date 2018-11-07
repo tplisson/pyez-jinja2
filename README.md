@@ -2,13 +2,19 @@
 
 [![Build Status](https://travis-ci.org/tplisson/pyez-jinja2.svg?branch=master)](https://travis-ci.org/tplisson/pyez-jinja2)
 
-## Documentation Structure
+## Table of Contents
 
 [**1. Quick Jinja2 Demo using the Python Interpreter**](README.md#-1.-Quick-Jinja2-Demo-using-the-python-interpreter)
 
 [**2. Simple Python script with a Jinja2 Template**](README.md#-2.-Simple-Python-script-with-a-Jinja2-Template)
 
 [**3. Python Script with Jinja2 using YAML files**](README.md#-3.-Python-Script-with-Jinja2-using-YAML-files)
+
+[**1. Quick Jinja2 Demo using the Python Interpreter**](README.md#1.-Quick-Jinja2-Demo-using-the-python-interpreter)
+
+[**2. Simple Python script with a Jinja2 Template**](README.md#2.-Simple-Python-script-with-a-Jinja2-Template)
+
+[**3. Python Script with Jinja2 using YAML files**](README.md#3.-Python-Script-with-Jinja2-using-YAML-files)
 
 
 # 1. Quick Jinja2 Demo using the Python Interpreter
@@ -24,6 +30,7 @@ docker pull juniper/pyez-ansible
 docker run -it --rm -v $(pwd):/project juniper/pyez-ansible
 ```
 
+<<<<<<< HEAD
 See Docker Hub for more info:
 - https://hub.docker.com/r/juniper/pyez-ansible/
 
@@ -36,6 +43,10 @@ If you need access to some Junos devices for lab / testing purposes, you can run
 - Examples of multi VMs topologies:
     - https://github.com/Juniper/vqfx10k-vagrant
 
+=======
+See Docker Hub for more info
+https://hub.docker.com/r/juniper/pyez-ansible/
+>>>>>>> 809b69b4d307698472ee5ce6e9918a42b4adaa32
 
 ## 1.2 Start the Python interpreter
 ```
@@ -81,7 +92,11 @@ Now instead of using the Python interpreter I can write a script that does the s
 ## 2.1 Writing a simple Python script
 Write a script called "genconfig.py" that includes the same jinja2 template.
 We then expand the variables with render() method for two logical interfaces and print the results.
+<<<<<<< HEAD
 ```python
+=======
+```
+>>>>>>> 809b69b4d307698472ee5ce6e9918a42b4adaa32
 #!/usr/bin/env python
 
 from jinja2 import Template
@@ -166,7 +181,11 @@ ifd:
 ## 3.3 Writing a simple Python script
 Write a script called "genconfig.py" that includes the same jinja2 template.
 We then expand the variables with render() method for two logical interfaces and print the results.
+<<<<<<< HEAD
 ```python
+=======
+```
+>>>>>>> 809b69b4d307698472ee5ce6e9918a42b4adaa32
 #!/usr/bin/env python
 
 import yaml
