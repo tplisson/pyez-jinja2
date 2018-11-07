@@ -1,5 +1,5 @@
 {% for item in ifd %}
-set interfaces {{ item.name }} unit {{ item.unit }} family int address {{ item.ip }}
+set interfaces {{ item.name }} unit {{ item.unit }} family inet address {{ item.ip }}
 {% endfor %}
 
 

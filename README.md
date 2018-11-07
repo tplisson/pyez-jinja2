@@ -4,11 +4,11 @@
 
 ## Documentation Structure
 
-[**1. Quick Jinja2 Demo using the Python Interpreter**](README.md#1.-Quick-Jinja2-Demo-using-the-python-interpreter)
+[**1. Quick Jinja2 Demo using the Python Interpreter**](README.md#-1.-Quick-Jinja2-Demo-using-the-python-interpreter)
 
-[**2. Simple Python script with a Jinja2 Template**](README.md#2.-Simple-Python-script-with-a-Jinja2-Template)
+[**2. Simple Python script with a Jinja2 Template**](README.md#-2.-Simple-Python-script-with-a-Jinja2-Template)
 
-[**3. Python Script with Jinja2 using YAML files**](README.md#3.-Python-Script-with-Jinja2-using-YAML-files)
+[**3. Python Script with Jinja2 using YAML files**](README.md#-3.-Python-Script-with-Jinja2-using-YAML-files)
 
 
 # 1. Quick Jinja2 Demo using the Python Interpreter
@@ -19,10 +19,23 @@ This is just a short demo to quickly show how Jinja2 templates work with Python
 Using a Docker container greatly simplifies the environment setup for Python, PyEz and Ansible... It also keeps things clean and contained
 
 ```
-docker run -it --rm -v $(pwd):/project --name pyez-ansible juniper/pyez-ansible ash
+docker pull juniper/pyez-ansible
+
+docker run -it --rm -v $(pwd):/project juniper/pyez-ansible
 ```
-See Docker Hub for more info
-https://hub.docker.com/r/juniper/pyez-ansible/
+
+See Docker Hub for more info:
+- https://hub.docker.com/r/juniper/pyez-ansible/
+
+If you need access to some Junos devices for lab / testing purposes, you can run vSRX or vQFX vagrant images:
+
+- vSRX image on Vagrant Cloud:
+    - https://app.vagrantup.com/juniper/boxes/ffp-12.1X47-D15.4-packetmode
+- vQFX image on Vagrant Cloud:
+    - https://app.vagrantup.com/juniper/boxes/vqfx10k-re
+- Examples of multi VMs topologies:
+    - https://github.com/Juniper/vqfx10k-vagrant
+
 
 ## 1.2 Start the Python interpreter
 ```
@@ -31,7 +44,7 @@ python
 
 ## 1.3 Getting the jinja2 module
 Import the "Template" method from the jinja2 module
-```
+```python
 from jinja2 import Template 
 ```
 
@@ -40,7 +53,7 @@ Create an instance of Template with my interface address variables.
 Jinja2 identifies the variables by using double curly brackets.
 
 For example, if I want to configure a number of interfaces on a Junos device with an IPv4 address, I can use the following syntax with 3 variables: the IFD (physical interface name), the unit and an IP address:
-```
+```python
 template = Template('set interface {{ ifd }} unit {{ unit }} family inet address {{ ip }}')
 ```
 
@@ -48,17 +61,17 @@ template = Template('set interface {{ ifd }} unit {{ unit }} family inet address
 The template object provides a method called render() which, when called with a dict or keyword arguments, expands the template 
 
 Now you can "expand" the variables with some values:
-```
+```python
 template.render(ifd='ge-0/0/0',unit='101',ip='10.0.1.1/24’)
 ```
 And you can repeat that many times with different values:
-```
+```python
 template.render(ifd='ge-0/0/0',unit='102',ip='10.0.2.1/24’)
 ```
 
 ## 1.6 Stop the Python interpreter
 Use Ctrl-D or:
-```
+```python
 exit()
 ```
 
@@ -68,7 +81,7 @@ Now instead of using the Python interpreter I can write a script that does the s
 ## 2.1 Writing a simple Python script
 Write a script called "genconfig.py" that includes the same jinja2 template.
 We then expand the variables with render() method for two logical interfaces and print the results.
-```
+```python
 #!/usr/bin/env python
 
 from jinja2 import Template
@@ -107,14 +120,14 @@ It's also a good idea to write your jinja2 template in a separate file while we'
 Write a jinja2 template called "conf.j2":
 
 In 'set commands' format:
-```
+```jinja2
 {% for item in ifd %}
 set interfaces {{ item.name }} unit {{ item.unit }} family int address {{ item.ip }}
 {% endfor %}
 ```
 
 Or in 'curly bracket' style:
-```
+```j2
 interfaces {
 {% for item in ifd %}
     {{ item.name }} {
@@ -130,7 +143,7 @@ interfaces {
 
 ## 3.2 YAML file for Variables
 Store the variables in a YAML file called "ifvars.yml":
-```
+```yaml
 ---
 ifd:
 - name: 'ge-0/0/1'
@@ -153,7 +166,7 @@ ifd:
 ## 3.3 Writing a simple Python script
 Write a script called "genconfig.py" that includes the same jinja2 template.
 We then expand the variables with render() method for two logical interfaces and print the results.
-```
+```python
 #!/usr/bin/env python
 
 import yaml
@@ -163,7 +176,7 @@ mytemplate = "setconf.j2"
 myinput = "ifd.yml"
 
 ### Print the Jinja2 Template file
-myj2 = open(mytemplate).read()
+myj2 = open(mytemplate.read())
 #print "\n### DEBUG: Print the Jinja2 template:"
 #print myj2
 
