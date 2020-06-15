@@ -94,9 +94,6 @@ Write a script called "genconfig.py" that includes the same jinja2 template.
 We then expand the variables with render() method for two logical interfaces and print the results.
 <<<<<<< HEAD
 ```python
-=======
-```
->>>>>>> 809b69b4d307698472ee5ce6e9918a42b4adaa32
 #!/usr/bin/env python
 
 from jinja2 import Template
@@ -183,9 +180,6 @@ Write a script called "genconfig.py" that includes the same jinja2 template.
 We then expand the variables with render() method for two logical interfaces and print the results.
 <<<<<<< HEAD
 ```python
-=======
-```
->>>>>>> 809b69b4d307698472ee5ce6e9918a42b4adaa32
 #!/usr/bin/env python
 
 import yaml
